@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import { fetchData } from './fetchData';
 import Characters from './components/Characters/Characters';
+import Hero from './components/Layout/Hero/Hero';
 
 const BASE_URL = 'https://rickandmortyapi.com/api';
 const RESOURCES = {
@@ -16,12 +17,7 @@ const App = () => {
   return (
     <>
       <main>
-        <p>
-          ¡Wubba lubba dub dub! Bienvenidos a mi dimensión interactiva. Aquí
-          podrás sumergirte en el vasto universo de Rick and Morty como nunca
-          antes. Prepárate para explorar y descubrir todos los secretos de esta
-          serie que desafía la realidad.
-        </p>
+        <Hero/>
         <Suspense fallback={<div>Loading...</div>}>
           <Characters items={data}/>
         </Suspense>

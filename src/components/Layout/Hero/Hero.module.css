@@ -1,0 +1,19 @@
+.hero {
+  align-items: center;
+  background-image: url('../../../assets/background.jpg');
+  background-size: cover;
+  height: 30rem;
+  display: flex;
+  width: 100%;
+}
+.hero .hero__inner {
+  margin: 0 auto;
+  max-height: 40rem;
+  max-width: 40rem;
+}
+
+.hero .hero__card {
+  backdrop-filter: blur(20px);
+  color: #fff;
+  font-size: 2rem;
+}
