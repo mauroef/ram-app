@@ -1,6 +1,8 @@
 .hero {
   align-items: center;
   background-image: url('../../../assets/background.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
   height: 30rem;
   display: flex;
@@ -15,5 +17,12 @@
 .hero .hero__card {
   backdrop-filter: blur(20px);
   color: #fff;
-  font-size: 2rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero .hero__card {
+    font-size: 2rem;
+  }
 }

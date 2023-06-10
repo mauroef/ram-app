@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import { fetchData } from './fetchData';
+import Header from './components/Layout/Header/Header';
 import Characters from './components/Characters/Characters';
 import Hero from './components/Layout/Hero/Hero';
 
@@ -16,6 +17,7 @@ const App = () => {
 
   return (
     <>
+      <Header/>
       <main>
         <Hero/>
         <Suspense fallback={<div>Loading...</div>}>
