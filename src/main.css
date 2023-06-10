@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
 
 :root {
+  --color-gray: #7c7c7c;
+  --color-green: #00f700;
+  --color-red: #cb1111;
   --color-lime: #bfde42;
   --color-tile: #193840;
   --color-aqua: #42b4ca;
@@ -17,7 +20,7 @@ body {
 
 body {
   background-color: #0d1117;
-  color: #fff
+  color: var(--color-white);
 }
 
 h1,
@@ -25,4 +28,12 @@ h2,
 h3,
 p {
   margin: 0;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style: none;
 }

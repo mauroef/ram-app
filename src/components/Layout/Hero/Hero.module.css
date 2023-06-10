@@ -16,7 +16,6 @@
 
 .hero .hero__card {
   backdrop-filter: blur(20px);
-  color: #fff;
   font-size: 1rem;
   text-align: center;
 }
