@@ -4,7 +4,7 @@ const Section = ({ title, children }) => {
     <section className={classes.section}>
       <div className={classes['section__inner']}>
         {title && <h2 className={classes['section__title']}>{title}</h2>}
-        <p>{children}</p>
+        {children}
       </div>
     </section>
   );

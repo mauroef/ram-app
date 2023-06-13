@@ -5,7 +5,9 @@ const Header = () => {
   return (
     <nav className={classes.header}>
       <h1>
-        <img src={Logo} alt='site logo' />
+        <a href='/' aria-label={'Home'}>
+          <img src={Logo} alt='site logo' />
+        </a>
       </h1>
     </nav>
   );
