@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Logo from '../../../assets/logo.svg';
 import classes from './Header.module.css';
 
@@ -5,9 +6,9 @@ const Header = () => {
   return (
     <nav className={classes.header}>
       <h1>
-        <a href='/' aria-label={'Home'}>
+        <Link to='/' className={classes.logo}>
           <img src={Logo} alt='site logo' />
-        </a>
+        </Link>
       </h1>
     </nav>
   );

@@ -1,19 +1,21 @@
 import { Suspense } from 'react';
 
 import Hero from '../components/Layout/Hero/Hero';
-// import { fetchData } from '../fetchData';
+import Section from '../components/Layout/Section/Section';
+import { default as CharactersElement } from '../components/Characters/Characters';
+import { fetchData } from '../fetchData';
 
-// const BASE_URL = 'https://rickandmortyapi.com/api';
-// const RESOURCES = {
-//   CHARACTERS: '/character',
-//   LOCATIONS: '/locations',
-//   EPISODES: '/episodes',
-// };
+const BASE_URL = 'https://rickandmortyapi.com/api';
+const RESOURCES = {
+  CHARACTERS: '/character',
+  LOCATIONS: '/locations',
+  EPISODES: '/episodes',
+};
 
-// const apiData = fetchData(BASE_URL + RESOURCES.CHARACTERS);
+const apiData = fetchData(BASE_URL + RESOURCES.CHARACTERS);
 
 const Characters = () => {
-  // const data = apiData.read();
+  const data = apiData.read();
 
   return (
     <main>
@@ -28,9 +30,11 @@ const Characters = () => {
           extravagantes del multiverso?
         </p>
       </Hero>
-      <Suspense fallback={<div>Loading...</div>}>
-        {/* <Characters items={data} /> */}
-      </Suspense>
+      <Section>
+        <Suspense fallback={<div>Loading...</div>}>
+          <CharactersElement items={data} />
+        </Suspense>
+      </Section>
     </main>
   );
 };

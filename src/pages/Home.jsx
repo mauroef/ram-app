@@ -1,5 +1,6 @@
 import Hero from '../components/Layout/Hero/Hero';
 import Section from '../components/Layout/Section/Section';
+import Link from '../components/UI/Link/Link';
 
 const Home = () => {
   return (
@@ -22,6 +23,7 @@ const Home = () => {
         mi torpe pero valiente nieto Morty. Descubre su trasfondo, sus
         peculiaridades y las sorpresas que cada uno de ellos guarda en su
         interior.`}</p>
+        <Link isCTA={true} redirect='/characters'>Ver más</Link>
       </Section>
       <Section title='Locaciones'>
         <p>
@@ -34,6 +36,7 @@ const Home = () => {
           Explora cada rincón de estos escenarios y sumérgete en la magia de
           cada uno de ellos.
         </p>
+        <Link isCTA={true} redirect='/locations'>Ver más</Link>
       </Section>
       <Section title='Episodios'>
         <p>
@@ -46,6 +49,7 @@ const Home = () => {
           cada episodio guarda secretos y referencias que solo los verdaderos
           fanáticos podrán descubrir.
         </p>
+        <Link isCTA={true} redirect='/episodes'>Ver más</Link>
       </Section>
       <Section>
         <p>

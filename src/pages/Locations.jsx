@@ -3,7 +3,7 @@ import Hero from '../components/Layout/Hero/Hero';
 const Locations = () => {
   return (
     <main>
-      <Hero backgroundURL={'/src/assets/bg-locations.png'}>
+      <Hero backgroundURL={'/src/assets/bg-locations.jpg'}>
         <p>
           ¡Bienvenido a la sección de Locaciones! Explora los mundos y
           dimensiones que Rick and Morty han visitado en sus aventuras

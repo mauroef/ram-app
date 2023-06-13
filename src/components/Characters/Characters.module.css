@@ -1,5 +1,15 @@
 .list {
-  display: flex;
-  flex-direction: column;
-  row-gap: 16px;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(1, 100%);
+}
+@media (min-width: 48rem) {
+  .list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 64rem) {
+  .list {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }

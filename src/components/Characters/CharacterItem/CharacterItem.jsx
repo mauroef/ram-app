@@ -33,10 +33,10 @@ const CharacterItem = ({ item }) => {
               {`${item.species} ${item.type ? '- ' + item.type : ''}`}
             </p>
           </div>
-          <p>First seen in: {item.origin.name}</p>
-          <p>Last seen in: {item.location.name}</p>
+          <p>Primera aparición: {item.origin.name}</p>
+          <p>Última aparición: {item.location.name}</p>
           <Link className={classes['item__button']} redirect={item.url}>
-            More info
+            Más información
           </Link>
         </div>
       </Card>

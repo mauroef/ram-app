@@ -1,10 +1,12 @@
 .item__card {
+  align-items: center;
   background-color: #161b22;
   display: flex;
   flex-direction: column;
 }
 .item__image {
   border-radius: 24px;
+  width: 100%;
 }
 .item__description {
   display: flex;
@@ -42,12 +44,6 @@
 }
 
 @media (min-width: 768px) {
-  .item__card {
-    flex-direction: row;
-  }
-  .item__image {
-    max-width: 11rem;
-  }
 }
 
 @keyframes live-dot-blink {
