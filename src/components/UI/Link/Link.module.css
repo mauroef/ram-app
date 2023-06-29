@@ -8,7 +8,7 @@
 }
 .link--cta {
   background-color: transparent;
-  border-radius: 1rem;
+  border-radius: var(--br-inner);
   outline: .1875rem solid var(--color-aqua);
   display: block;
   margin-top: 1.5rem;

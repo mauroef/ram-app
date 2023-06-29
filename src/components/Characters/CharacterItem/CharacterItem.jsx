@@ -1,5 +1,5 @@
 import Card from '../../UI/Card/Card';
-import Link from '../../UI/Link/Link';
+import Button from '../../UI/Button/BUtton';
 import classes from './CharacterItem.module.css';
 
 const CharacterItem = ({ item }) => {
@@ -15,32 +15,45 @@ const CharacterItem = ({ item }) => {
   };
 
   return (
-    <li className={classes.item}>
-      <Card className={classes['item__card']}>
+    <Card className={classes['item__card']}>
+      <div className={classes['item__image-container']}>
         <img
           className={classes['item__image']}
           src={item.image}
           alt={`image of ${item.name}`}
+          title={item.name}
         />
-        <div className={classes['item__description']}>
-          <div>
-            <h3
-              className={`${classes['item__name']} ${showStatus(item.status)}`}
-            >
-              {item.name}
-            </h3>
-            <p className={classes['item__species-type']}>
-              {`${item.species} ${item.type ? '- ' + item.type : ''}`}
-            </p>
-          </div>
-          <p>Primera aparición: {item.origin.name}</p>
-          <p>Última aparición: {item.location.name}</p>
-          <Link className={classes['item__button']} redirect={item.url}>
-            Más información
-          </Link>
+        <img
+          className={classes['item__image--shadow']}
+          src={item.image}
+          aria-hidden='true'
+        />
+      </div>
+      <div className={classes['item__content']}>
+        <div className={classes['item__header']}>
+          <h3
+            className={`${classes['item__name']} ${showStatus(item.status)}`}
+            title={item.name}
+          >
+            {item.name}
+          </h3>
+          <p className={classes['item__species-type']}>
+            {`${item.species} ${item.type ? '- ' + item.type : ''}`}
+          </p>
         </div>
-      </Card>
-    </li>
+        <div className={classes['item__description']}>
+          <p>
+            Origen: <span>{item.origin.name}</span>
+          </p>
+          <p>
+            Última ubicación: <span>{item.location.name}</span>
+          </p>
+          <Button className={classes['item__button']} redirect={item.url}>
+            Más información
+          </Button>
+        </div>
+      </div>
+    </Card>
   );
 };
 

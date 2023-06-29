@@ -4,20 +4,42 @@
   display: flex;
   flex-direction: column;
 }
-.item__image {
-  border-radius: 24px;
+.item__image-container {
+  position: relative;
   width: 100%;
 }
-.item__description {
+.item__image {
+  aspect-ratio: 1/1;
+  border-radius: var(--br-inner);
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+.item__image--shadow {
+  bottom: 0.5rem;
+  filter: blur(1rem);
+  left: 10%;
+  opacity: 75%;
+  position: absolute;
+  width: 80%;
+}
+.item__content {
   display: flex;
   flex-direction: column;
-  row-gap: .5rem;
-  padding: 1rem;
+  row-gap: 1rem;
+  padding: 0 0.5rem;
+  width: 100%;
+}
+.item__header {
+  max-width: 100%;
 }
 .item__name {
-  align-items: center;
-  display: flex;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .item__name::before {
   animation: live-dot-blink 1.5s ease-in-out infinite;
@@ -27,25 +49,54 @@
   display: inline-block;
   height: 0.5rem;
   margin: 0 0.5rem 0 0;
+  min-width: 0.5rem;
+  vertical-align: middle;
   width: 0.5rem;
 }
-
 .item__name.dead::before {
   animation: none;
   background-color: var(--color-red);
 }
-
 .item__name.unknown::before {
   animation: none;
   background-color: var(--color-gray);
 }
 .item__species-type {
   color: #7d8590;
+  display: block;
+  font-size: 1rem;
+  font-weight: 900;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-
+.item__description {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+}
+.item__description p {
+  color: var(--color-aqua);
+  font-size: 0.75rem;
+}
+.item__description span {
+  color: var(--color-white);
+  display: block;
+  font-size: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.item__button {
+  background-color: var(--color-lime);
+  font-size: 1rem;
+  padding: 0.5rem 0;
+}
+.item__button:hover {
+  opacity: 0.9;
+}
 @media (min-width: 768px) {
 }
-
 @keyframes live-dot-blink {
   0%,
   to {

@@ -2,14 +2,15 @@
   display: grid;
   gap: 0.5rem;
   grid-template-columns: repeat(1, 100%);
+  min-height: 100vh;
 }
 @media (min-width: 48rem) {
   .list {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, calc(33% - 2.5px));
   }
 }
 @media (min-width: 64rem) {
   .list {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, calc(25% - 12px));
   }
 }

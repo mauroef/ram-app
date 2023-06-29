@@ -8,6 +8,8 @@
   --color-tile: #193840;
   --color-aqua: #42b4ca;
   --color-white: #e6edf3;
+  --br-outer: 24px;
+  --br-inner: 12px;
 }
 * {
   box-sizing: border-box;
@@ -38,4 +40,8 @@ ul {
 
 li {
   list-style: none;
+}
+
+button {
+  font-family: 'Nunito', sans-serif;
 }
