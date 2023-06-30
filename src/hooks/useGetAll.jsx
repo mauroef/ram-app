@@ -1,21 +1,15 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import {BASE_URL} from '../../config';
 
-const BASE_URL = 'https://rickandmortyapi.com/api';
-const RESOURCES = {
-  CHARACTERS: '/character',
-  LOCATIONS: '/locations',
-  EPISODES: '/episodes',
-};
-
-function useGetCharacters(pageNum, queryName) {
+function useGetAll(resource, pageNum, queryName) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [characters, setCharacters] = useState([]);
+  const [resourceData, setResourceData] = useState([]);
   const [hasMore, setHasMore] = useState(false);
 
   useEffect(() => {
-    setCharacters([]);
+    setResourceData([]);
   }, [queryName]);
 
   useEffect(() => {
@@ -26,15 +20,16 @@ function useGetCharacters(pageNum, queryName) {
 
     setIsLoading(true);
     setError(false);
+    console.log({URL: `${BASE_URL}${resource}?page=${pageNum}${searchByName}`});
     axios
       .get(
-        `${BASE_URL}${RESOURCES.CHARACTERS}?page=${pageNum}${searchByName}`,
+        `${BASE_URL}${resource}?page=${pageNum}${searchByName}`,
         {
           cancelToken: new CancelToken((c) => (cancel = c)),
         }
       )
       .then((res) => {
-        setCharacters((prev) => {
+        setResourceData((prev) => {
           return [...new Set([...prev, ...res.data.results])];
         });
         setHasMore(res.data.info.next !== null);
@@ -48,9 +43,9 @@ function useGetCharacters(pageNum, queryName) {
       });
 
     return () => cancel();
-  }, [pageNum, queryName]);
+  }, [resource, pageNum, queryName]);
 
-  return { isLoading, error, characters, hasMore };
+  return { isLoading, error, resourceData, hasMore };
 }
 
-export default useGetCharacters;
+export default useGetAll;

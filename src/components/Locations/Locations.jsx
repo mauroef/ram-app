@@ -1,5 +1,5 @@
 import { useCallback, useRef, useState } from 'react';
-import CharacterItem from './CharacterItem/CharacterItem';
+import LocationItem from './LocationItem/LocationItem';
 import Search from '../Search/Search';
 import List from '../UI/List/List';
 import Loader from '../UI/Loader/Loader';
@@ -8,20 +8,20 @@ import useGetAll from '../../hooks/useGetAll';
 import { RESOURCES } from '../../../config/';
 import classes from '../UI/List/List.module.css';
 
-const Characters = () => {
+const Locations = () => {
   const [pageNum, setPageNum] = useState(1);
   const [queryName, setQueryName] = useState('');
   const [nameInput, setNameInput] = useState('');
 
   const { isLoading, error, resourceData, hasMore } = useGetAll(
-    RESOURCES.CHARACTERS,
+    RESOURCES.LOCATIONS,
     pageNum,
     queryName
   );
 
   const observer = useRef();
 
-  const lastCharacterElementRef = useCallback(
+  const lastLocationElementRef = useCallback(
     (node) => {
       if (isLoading) {
         return;
@@ -66,19 +66,17 @@ const Characters = () => {
         nameValue={nameInput}
         onChangeNameValue={nameInputHandler}
       />
-      <List className={classes['list--characters']}>
-        {resourceData.map((char, i) => {
+      <List className={classes['list--locations']}>
+        {resourceData.map((loc, i) => {
           if (resourceData.length === i + 1) {
             return (
-              <li ref={lastCharacterElementRef} key={i}>
-                <CharacterItem key={i} item={char} />
+              <li ref={lastLocationElementRef} key={i}>
+                <LocationItem key={i} item={loc}/>
               </li>
             );
           } else {
             return (
-              <li key={i}>
-                <CharacterItem key={i} item={char} />
-              </li>
+              <li key={i}>{<LocationItem key={i} item={loc} />}</li>
             );
           }
         })}
@@ -86,12 +84,13 @@ const Characters = () => {
         {error && (
           <Error>
             <p>
-              ¡Oh, vaya! Parece que no encontramos ningún personaje que coincida
+              ¡Oh jeez! Parece que no encontramos ninguna locación que coincida
               con tu búsqueda.
             </p>
             <p>
-              Pero, eh, no te preocupes, seguro que hay muchos otros personajes
-              fascinantes por descubrir en este vasto multiverso.
+              Quién sabe, tal vez podamos tropezarnos con alguna dimensión
+              oculta o una nueva locación impresionante que ni siquiera sabíamos
+              que existía. La vida es así de impredecible, ¿verdad?
             </p>
           </Error>
         )}
@@ -100,4 +99,4 @@ const Characters = () => {
   );
 };
 
-export default Characters;
+export default Locations;

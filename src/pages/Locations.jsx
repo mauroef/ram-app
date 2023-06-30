@@ -1,4 +1,6 @@
 import Hero from '../components/Layout/Hero/Hero';
+import Section from '../components/Layout/Section/Section';
+import { default as LocationsElement } from '../components/Locations/Locations';
 
 const Locations = () => {
   return (
@@ -14,6 +16,9 @@ const Locations = () => {
           ¿Listo para embarcarte en un viaje a través del multiverso?
         </p>
       </Hero>
+      <Section>
+        <LocationsElement />
+      </Section>
     </main>
   );
 };

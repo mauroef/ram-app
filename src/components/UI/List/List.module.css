@@ -1,16 +1,18 @@
-.list {
+.list--characters {
   display: grid;
   gap: 0.5rem;
   grid-template-columns: repeat(1, 100%);
-  min-height: 50vh;
+}
+.list--locations {
+  background-color: blueviolet;
 }
 @media (min-width: 48rem) {
-  .list {
+  .list--characters {
     grid-template-columns: repeat(3, calc(33% - 2.5px));
   }
 }
 @media (min-width: 64rem) {
-  .list {
+  .list--characters {
     grid-template-columns: repeat(4, calc(25% - 6px));
   }
 }
