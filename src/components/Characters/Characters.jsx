@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from 'react';
 import CharacterItem from './CharacterItem/CharacterItem';
-import Button from '../UI/Button/Button';
+import Search from '../Search/Search';
 import Loader from '../UI/Loader/Loader';
 import useGetCharacters from '../../hooks/useGetCharacters';
 import classes from './Characters.module.css';
@@ -8,6 +8,7 @@ import classes from './Characters.module.css';
 const Characters = () => {
   const [pageNum, setPageNum] = useState(1);
   const [queryName, setQueryName] = useState('');
+  const [nameInput, setNameInput] = useState('');
 
   const { isLoading, error, characters, hasMore } = useGetCharacters(
     pageNum,
@@ -15,7 +16,6 @@ const Characters = () => {
   );
 
   const observer = useRef();
-  const nameInputRef = useRef();
 
   const lastCharacterElementRef = useCallback(
     (node) => {
@@ -37,23 +37,27 @@ const Characters = () => {
     [isLoading, hasMore]
   );
 
-  const changeHanlder = (event) => {
+  const nameInputHandler = (event) => {
+    const name = event.target.value;
+    setNameInput(name);
+    if (name === '') {
+      setQueryName(name);
+      setPageNum(1);
+    }
+  };
+
+  const submitHandler = (event) => {
     event.preventDefault();
-    const enteredNameRef = nameInputRef.current.value;
-    if (enteredNameRef.trim().length === 0) {
-      // TODO: flag empty value
+    if (nameInput.trim().length === 0) {
       return;
     }
-    setQueryName(enteredNameRef);
+    setQueryName(nameInput);
     setPageNum(1);
   };
 
   return (
-    <>
-      <form className={classes.form} onSubmit={changeHanlder}>
-        <input className={classes['form__input']} type='text' ref={nameInputRef} placeholder='Búsqueda por nombre...'/>
-        <Button className={classes['form__button']} type='submit'>Buscar</Button>
-      </form>
+    <div>
+      <Search onSubmit={submitHandler} nameValue={nameInput} onChangeNameValue={nameInputHandler}/>
       <ul className={classes.list}>
         {characters.map((char, i) => {
           if (characters.length === i + 1) {
@@ -73,7 +77,7 @@ const Characters = () => {
         {isLoading && !error && <Loader />}
         <div>{error && 'Error... '}</div>
       </ul>
-    </>
+    </div>
   );
 };
 
