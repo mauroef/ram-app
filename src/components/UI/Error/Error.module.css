@@ -1,0 +1,22 @@
+.error__container {
+  background-color: #161b22;
+  border-radius: var(--br-outer);
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  padding: 2rem;
+  width: 100%;
+}
+.error__container p {
+  text-align: center;
+}
+@media (min-width: 48rem) {
+  .error__container {
+    grid-column: 1/ 5;
+  }
+}
+@media (min-width: 64rem) {
+  .error__container {
+    grid-column: 1/ 5;
+  }
+}

@@ -1,6 +1,5 @@
 .loader__container {
   display: flex;
-  grid-column: 1/ 5;
   min-height: 458px;
   width: 100%;
 }
@@ -11,7 +10,16 @@
   margin: 0 auto;
   max-width: 250px;
 }
-
+@media (min-width: 48rem) {
+  .loader__container {
+    grid-column: 1/ 4;
+  }
+}
+@media (min-width: 64rem) {
+  .loader__container {
+    grid-column: 1/ 5;
+  }
+}
 @keyframes loader-rotator {
   100% {
     transform: rotate(1turn);

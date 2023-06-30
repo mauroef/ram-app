@@ -2,6 +2,7 @@ import { useCallback, useRef, useState } from 'react';
 import CharacterItem from './CharacterItem/CharacterItem';
 import Search from '../Search/Search';
 import Loader from '../UI/Loader/Loader';
+import Error from '../UI/Error/Error';
 import useGetCharacters from '../../hooks/useGetCharacters';
 import classes from './Characters.module.css';
 
@@ -57,7 +58,11 @@ const Characters = () => {
 
   return (
     <div>
-      <Search onSubmit={submitHandler} nameValue={nameInput} onChangeNameValue={nameInputHandler}/>
+      <Search
+        onSubmit={submitHandler}
+        nameValue={nameInput}
+        onChangeNameValue={nameInputHandler}
+      />
       <ul className={classes.list}>
         {characters.map((char, i) => {
           if (characters.length === i + 1) {
@@ -75,7 +80,18 @@ const Characters = () => {
           }
         })}
         {isLoading && !error && <Loader />}
-        <div>{error && 'Error... '}</div>
+        {error && (
+          <Error>
+            <p>
+              ¡Oh, vaya! Parece que no encontramos ningún personaje que coincida
+              con tu búsqueda.
+            </p>
+            <p>
+              Pero, eh, no te preocupes, seguro que hay muchos otros personajes
+              fascinantes por descubrir en este vasto multiverso.
+            </p>
+          </Error>
+        )}
       </ul>
     </div>
   );
