@@ -1,5 +1,5 @@
 import Card from '../../UI/Card/Card';
-import Button from '../../UI/Button/BUtton';
+import Button from '../../UI/Button/Button';
 import classes from './CharacterItem.module.css';
 
 const CharacterItem = ({ item }) => {
@@ -43,10 +43,10 @@ const CharacterItem = ({ item }) => {
         </div>
         <div className={classes['item__description']}>
           <p>
-            Origen: <span>{item.origin.name}</span>
+            Origen: <span title={item.origin.name}>{item.origin.name}</span>
           </p>
           <p>
-            Última ubicación: <span>{item.location.name}</span>
+            Última ubicación: <span title={item.location.name}>{item.location.name}</span>
           </p>
           <Button className={classes['item__button']} redirect={item.url}>
             Más información

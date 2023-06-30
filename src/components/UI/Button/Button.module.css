@@ -6,3 +6,12 @@
 .button:hover {
   cursor: pointer;
 }
+.button:disabled,
+.button:focus:disabled,
+.button:hover:disabled,
+.button:active:disabled {
+  background: var(--color-gray);
+  border-color: var(--color-black);
+  color: var(--color-black);
+  cursor: not-allowed;
+}

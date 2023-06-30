@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
 
 :root {
+  --color-black: #202329;
   --color-gray: #7c7c7c;
   --color-green: #00f700;
   --color-red: #cb1111;

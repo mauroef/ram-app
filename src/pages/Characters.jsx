@@ -1,5 +1,3 @@
-// import { Suspense } from 'react';
-
 import Hero from '../components/Layout/Hero/Hero';
 import Section from '../components/Layout/Section/Section';
 import { default as CharactersElement } from '../components/Characters/Characters';
@@ -19,9 +17,7 @@ const Characters = () => {
         </p>
       </Hero>
       <Section>
-        {/* <Suspense fallback={<div>Loading...</div>}> */}
           <CharactersElement />
-        {/* </Suspense> */}
       </Section>
     </main>
   );

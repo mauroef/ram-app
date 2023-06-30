@@ -58,9 +58,9 @@ const Home = () => {
           hora de dejar tu huella en el multiverso!
         </p>
         <p>
-          {`Recuerda, en palabras sabias de un genio como yo: 'La ciencia es
-        maravillosa, pero el conocimiento compartido es aún más poderoso'.
-        ¡Empecemos nuestra aventura juntos!"`}
+          {`Recuerda, en palabras sabias de un genio como yo: "La ciencia es
+        maravillosa, pero el conocimiento compartido es aún más poderoso".
+        ¡Empecemos nuestra aventura juntos!`}
         </p>
       </Section>
     </main>

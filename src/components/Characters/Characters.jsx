@@ -1,5 +1,7 @@
 import { useCallback, useRef, useState } from 'react';
 import CharacterItem from './CharacterItem/CharacterItem';
+import Button from '../UI/Button/Button';
+import Loader from '../UI/Loader/Loader';
 import useGetCharacters from '../../hooks/useGetCharacters';
 import classes from './Characters.module.css';
 
@@ -48,9 +50,9 @@ const Characters = () => {
 
   return (
     <>
-      <form onSubmit={changeHanlder}>
-        <input type='text' ref={nameInputRef} />
-        <button type='submit'>search</button>
+      <form className={classes.form} onSubmit={changeHanlder}>
+        <input className={classes['form__input']} type='text' ref={nameInputRef} placeholder='Búsqueda por nombre...'/>
+        <Button className={classes['form__button']} type='submit'>Buscar</Button>
       </form>
       <ul className={classes.list}>
         {characters.map((char, i) => {
@@ -68,7 +70,7 @@ const Characters = () => {
             );
           }
         })}
-        <div>{isLoading && !error && 'Loading...'}</div>
+        {isLoading && !error && <Loader />}
         <div>{error && 'Error... '}</div>
       </ul>
     </>
