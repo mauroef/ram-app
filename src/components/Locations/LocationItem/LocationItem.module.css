@@ -1,0 +1,13 @@
+.item__card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 5rem;
+}
+.item__card > p {
+  font-size: 1rem;
+}
+.item__dimension--unknown {
+  color: var(--color-gray);
+}
+@media (min-width: 48rem) {
+  
+}

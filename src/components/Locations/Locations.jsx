@@ -67,6 +67,12 @@ const Locations = () => {
         onChangeNameValue={nameInputHandler}
       />
       <List className={classes['list--locations']}>
+        <div className={classes['list__header']}>
+          <p>Nombre</p>
+          <p>Tipo</p>
+          <p>Dimensión</p>
+          <p></p>
+        </div>
         {resourceData.map((loc, i) => {
           if (resourceData.length === i + 1) {
             return (
