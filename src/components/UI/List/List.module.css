@@ -18,8 +18,13 @@
   border-top-left-radius: var(--br-outer);
   border-top-right-radius: var(--br-outer);
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 5rem;
   padding: 1rem;
+}
+.list__header-inner--locations {
+  grid-template-columns: 1fr 1fr 1fr 5rem;
+}
+.list__header-inner--episodes {
+  grid-template-columns: 1.5fr 1fr 1fr 5rem;
 }
 .list__header p {
   color: var(--color-aqua);

@@ -1,5 +1,5 @@
 import { useCallback, useRef, useState } from 'react';
-import LocationItem from './LocationItem/LocationItem';
+import EpisodeItem from './EpisodeItem/EpisodeItem';
 import Search from '../Search/Search';
 import List from '../UI/List/List';
 import Loader from '../UI/Loader/Loader';
@@ -8,13 +8,13 @@ import useGetAll from '../../hooks/useGetAll';
 import { RESOURCES } from '../../../config/';
 import classes from '../UI/List/List.module.css';
 
-const Locations = () => {
+const Episodes = () => {
   const [pageNum, setPageNum] = useState(1);
   const [queryName, setQueryName] = useState('');
   const [nameInput, setNameInput] = useState('');
 
   const { isLoading, error, resourceData, hasMore } = useGetAll(
-    RESOURCES.LOCATIONS,
+    RESOURCES.EPISODES,
     pageNum,
     queryName
   );
@@ -62,11 +62,11 @@ const Locations = () => {
   const header = (
     <header className={classes['list__header']}>
       <div
-        className={`${classes['list__header-inner']} ${classes['list__header-inner--locations']}`}
+        className={`${classes['list__header-inner']} ${classes['list__header-inner--episodes']}`}
       >
         <p>Nombre</p>
-        <p>Tipo</p>
-        <p>Dimensión</p>
+        <p>Fecha de Emisión</p>
+        <p>Número</p>
         <p></p>
       </div>
     </header>
@@ -85,24 +85,25 @@ const Locations = () => {
           if (resourceData.length === i + 1) {
             return (
               <li ref={lastLocationElementRef} key={i}>
-                <LocationItem key={i} item={loc} />
+                <EpisodeItem key={i} item={loc} />
               </li>
             );
           } else {
-            return <li key={i}>{<LocationItem key={i} item={loc} />}</li>;
+            return <li key={i}>{<EpisodeItem key={i} item={loc} />}</li>;
           }
         })}
         {isLoading && !error && <Loader />}
         {error && (
           <Error>
             <p>
-              ¡Oh jeez! Parece que no encontramos ninguna locación que coincida
-              con tu búsqueda.
+              ¡Oh, wow! Parece que no podemos encontrar ningún episodio que
+              coincida con tu búsqueda.
             </p>
             <p>
-              Quién sabe, tal vez podamos tropezarnos con alguna dimensión
-              oculta o una nueva locación impresionante que ni siquiera sabíamos
-              que existía. La vida es así de impredecible, ¿verdad?
+              Mientras tanto, te invito a explorar las otras secciones. Tal vez
+              encuentres información fascinante sobre los personajes o las
+              locaciones de la serie. Quién sabe, podría haber secretos ocultos
+              y referencias interesantes que te sorprenderán.
             </p>
           </Error>
         )}
@@ -111,4 +112,4 @@ const Locations = () => {
   );
 };
 
-export default Locations;
+export default Episodes;

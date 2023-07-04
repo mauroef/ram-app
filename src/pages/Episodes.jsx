@@ -1,4 +1,6 @@
 import Hero from '../components/Layout/Hero/Hero';
+import Section from '../components/Layout/Section/Section';
+import { default as EpisodesElement } from '../components/Episodes/Episodes';
 
 const Episodes = () => {
   return (
@@ -15,6 +17,9 @@ const Episodes = () => {
           lleno de diversión y sci-fi!
         </p>
       </Hero>
+      <Section>
+        <EpisodesElement />
+      </Section>
     </main>
   );
 };

@@ -20,7 +20,7 @@ function useGetAll(resource, pageNum, queryName) {
 
     setIsLoading(true);
     setError(false);
-    console.log({URL: `${BASE_URL}${resource}?page=${pageNum}${searchByName}`});
+
     axios
       .get(
         `${BASE_URL}${resource}?page=${pageNum}${searchByName}`,
