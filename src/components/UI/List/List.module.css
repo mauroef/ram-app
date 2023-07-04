@@ -9,15 +9,17 @@
   flex-direction: column;
 }
 .list__header {
+  background-color: #0d1117;
+  position: sticky;
+  top: 0;
+}
+.list__header-inner {
   background-color: #161b22;
   border-top-left-radius: var(--br-outer);
   border-top-right-radius: var(--br-outer);
-  border-radius: var(--br-outer);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 5rem;
   padding: 1rem;
-  position: sticky;
-  top: 0;
 }
 .list__header p {
   color: var(--color-aqua);
@@ -27,11 +29,23 @@
 .list--locations li:nth-child(odd) {
   background-color: #161b22;
 }
-.list--locations p {
+.list--locations li p {
   overflow: hidden;
   padding-right: 1rem;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.list--locations button {
+  background-color: transparent;
+  color: var(--color-lime);
+  font-size: 1rem;
+  outline: 0.0625rem solid var(--color-lime);
+  transition: all .25s ease-out;
+
+}
+.list--locations button:hover {
+  background-color: var(--color-lime);
+  color: var(--color-black);
 }
 @media (min-width: 48rem) {
   .list--characters {

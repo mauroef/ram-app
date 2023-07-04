@@ -59,6 +59,17 @@ const Locations = () => {
     setPageNum(1);
   };
 
+  const header = (
+    <header className={classes['list__header']}>
+      <div className={classes['list__header-inner']}>
+        <p>Nombre</p>
+        <p>Tipo</p>
+        <p>Dimensión</p>
+        <p></p>
+      </div>
+    </header>
+  );
+
   return (
     <div>
       <Search
@@ -67,23 +78,16 @@ const Locations = () => {
         onChangeNameValue={nameInputHandler}
       />
       <List className={classes['list--locations']}>
-        <div className={classes['list__header']}>
-          <p>Nombre</p>
-          <p>Tipo</p>
-          <p>Dimensión</p>
-          <p></p>
-        </div>
+        {resourceData.length > 0 && header}
         {resourceData.map((loc, i) => {
           if (resourceData.length === i + 1) {
             return (
               <li ref={lastLocationElementRef} key={i}>
-                <LocationItem key={i} item={loc}/>
+                <LocationItem key={i} item={loc} />
               </li>
             );
           } else {
-            return (
-              <li key={i}>{<LocationItem key={i} item={loc} />}</li>
-            );
+            return <li key={i}>{<LocationItem key={i} item={loc} />}</li>;
           }
         })}
         {isLoading && !error && <Loader />}
