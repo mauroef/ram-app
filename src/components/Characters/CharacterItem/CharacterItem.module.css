@@ -3,9 +3,11 @@
   background-color: #161b22;
   display: flex;
   flex-direction: column;
+  row-gap: 0.5rem;
 }
 .item__image-container {
   position: relative;
+  line-height: 0;
   width: 100%;
 }
 .item__image {
@@ -58,7 +60,7 @@
   background-color: var(--color-red);
 }
 .item__name.unknown::before {
-  animation: none;
+  animation: dead-dot-blink 1.5s ease-in-out infinite;
   background-color: var(--color-gray);
 }
 .item__species-type {
@@ -91,11 +93,22 @@
   background-color: var(--color-lime);
   font-size: 1rem;
   padding: 0.5rem 0;
+  width: 100%;
 }
 .item__button:hover {
   opacity: 0.9;
 }
 @media (min-width: 768px) {
+}
+@keyframes dead-dot-blink {
+  0%,
+  to {
+    opacity: 0.6;
+  }
+  40%,
+  100% {
+    opacity: 1;
+  }
 }
 @keyframes live-dot-blink {
   0%,

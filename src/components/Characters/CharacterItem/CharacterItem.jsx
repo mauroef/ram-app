@@ -48,7 +48,9 @@ const CharacterItem = ({ item }) => {
           <p>
             Última ubicación: <span title={item.location.name}>{item.location.name}</span>
           </p>
-          <Button className={classes['item__button']} redirect={item.url}>
+        </div>
+        <div className={classes['item__footer']}>
+        <Button className={classes['item__button']} redirect={item.url}>
             Más información
           </Button>
         </div>

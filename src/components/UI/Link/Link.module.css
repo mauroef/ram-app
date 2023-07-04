@@ -9,15 +9,17 @@
 .link--cta {
   background-color: transparent;
   border-radius: var(--br-inner);
-  outline: .1875rem solid var(--color-aqua);
+  border: .1875rem solid var(--color-aqua);
   display: block;
   margin-top: 1.5rem;
   padding: .5rem 1rem;
-  transition: background-color .25s ease-out;
+  transition: all .25s ease-out;
   width: fit-content;
 }
 .link--cta:hover {
   text-decoration: none;
   background-color: var(--color-lime);
+  border-color: var(--color-lime);
+  color: var(--color-black);
   outline: none;
 }

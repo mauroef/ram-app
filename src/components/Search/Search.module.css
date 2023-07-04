@@ -12,14 +12,15 @@
 }
 .form__input {
   background-color: var(--color-white);
-  border: none;
+  border: solid 0.1875rem var(--color-white);
   border-radius: var(--br-inner);
   flex-grow: 1;
-  font-size: 1.75rem;
-  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  padding: 0 1rem;
 }
 .form__input:focus-visible {
-  outline: solid var(--color-aqua);
+  border-color: var(--color-aqua);
+  outline: none;
 }
 .form__button {
   background-color: transparent;
@@ -32,6 +33,10 @@
 .form__button:hover {
   background-color: var(--color-aqua);
   color: var(--color-black);
+}
+.form__button:focus-visible {
+  border-color: var(--color-lime);
+  outline: none;
 }
 @media (max-width: 48rem) {
   .form {

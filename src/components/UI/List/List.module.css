@@ -42,9 +42,9 @@
 }
 .list--locations button {
   background-color: transparent;
+  border: 0.0625rem solid var(--color-lime);
   color: var(--color-lime);
   font-size: 1rem;
-  outline: 0.0625rem solid var(--color-lime);
   transition: all .25s ease-out;
 
 }
