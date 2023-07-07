@@ -4,9 +4,7 @@ import classes from './CharacterItem.module.css';
 
 const CharacterItem = ({
   item,
-  // detailIsShown,
   onShowDetail,
-  // onCloseDatail,
 }) => {
   const showStatus = (status) => {
     let statusClass = '';

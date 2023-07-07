@@ -20,11 +20,9 @@ function useGetById(resource, ids) {
         setResourceData(() => {
           const response = res.data;
           if (typeof response === 'object') {
-            console.log('one result');
             return [response];
           }
           if (Array.isArray(response)) {
-            console.log('multiple result');
             return response;
           }
           return [];

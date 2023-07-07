@@ -34,6 +34,10 @@ const CharacterDetail = ({ detail, onClose }) => {
           {detail.species}
         </p>
         <p>
+          <span>Tipo: </span>
+          {detail.type}
+        </p>
+        <p>
           <span>Género: </span>
           {detail.gender}
         </p>
