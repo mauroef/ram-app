@@ -14,8 +14,8 @@
 }
 
 .hero .hero__card {
-  backdrop-filter: blur(1.25rem);
-  background-color: rgba(0,0,0,0.1);
+  backdrop-filter: blur(0.25rem);
+  background-color: rgba(0,0,0,0.3);
   font-size: 1rem;
   text-align: center;
 }

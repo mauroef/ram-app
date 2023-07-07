@@ -2,7 +2,12 @@ import Card from '../../UI/Card/Card';
 import Button from '../../UI/Button/Button';
 import classes from './CharacterItem.module.css';
 
-const CharacterItem = ({ item }) => {
+const CharacterItem = ({
+  item,
+  // detailIsShown,
+  onShowDetail,
+  // onCloseDatail,
+}) => {
   const showStatus = (status) => {
     let statusClass = '';
     if (status === 'Dead') {
@@ -12,6 +17,10 @@ const CharacterItem = ({ item }) => {
       statusClass = classes.unknown;
     }
     return statusClass;
+  };
+
+  const showDetailHandler = () => {
+    onShowDetail(item.id);
   };
 
   return (
@@ -46,11 +55,15 @@ const CharacterItem = ({ item }) => {
             Origen: <span title={item.origin.name}>{item.origin.name}</span>
           </p>
           <p>
-            Última ubicación: <span title={item.location.name}>{item.location.name}</span>
+            Última ubicación:{' '}
+            <span title={item.location.name}>{item.location.name}</span>
           </p>
         </div>
         <div className={classes['item__footer']}>
-        <Button className={classes['item__button']} redirect={item.url}>
+          <Button
+            className={classes['item__button']}
+            onClick={showDetailHandler}
+          >
             Más información
           </Button>
         </div>
