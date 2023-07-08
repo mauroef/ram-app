@@ -6,15 +6,12 @@
 .section:nth-child(odd) {
   background-color: #161b22;
 }
-
 .section__inner > p + p {
   margin-top: 1rem;
 }
-
 .section__title {
   margin-bottom: 1.5rem;
 }
-
 @media (min-width: 768px) {
   .section {
     padding: 4rem 1rem;

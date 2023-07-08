@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <main>
       <Hero backgroundURL={'/src/assets/bg-home.png'}>
-        <p>
+        <p style={{minHeight: '10.75rem'}}>
           ¡Wubba lubba dub dub! Bienvenidos a mi dimensión interactiva. Aquí
           podrás sumergirte en el vasto universo de Rick and Morty como nunca
           antes. Prepárate para explorar y descubrir todos los secretos de esta

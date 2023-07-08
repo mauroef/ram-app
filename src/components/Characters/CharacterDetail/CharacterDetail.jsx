@@ -33,10 +33,12 @@ const CharacterDetail = ({ detail, onClose }) => {
           <span>Especie: </span>
           {detail.species}
         </p>
-        <p>
-          <span>Tipo: </span>
-          {detail.type}
-        </p>
+        {detail.type && (
+          <p>
+            <span>Tipo: </span>
+            {detail.type}
+          </p>
+        )}
         <p>
           <span>Género: </span>
           {detail.gender}

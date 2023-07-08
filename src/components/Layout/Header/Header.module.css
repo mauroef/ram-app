@@ -2,11 +2,12 @@
   background-color: #161b22;
   display: flex;
   justify-content: center;
+  min-height: 7rem;
   padding: 1rem 0;
 }
 .header h1 {
   font-size: 0;
 }
 .header img {
-  max-width: 200px;
+  max-height: 5rem;
 }
