@@ -23,7 +23,7 @@ const EpisodeDetail = ({ detail, characters, onClose }) => {
       <Card className={classes['detail__characters']}>
         <p>Personajes</p>
         <ul className={classes['detail__characters-list']}>
-          {characters.length && characters.map((ch, i) => (
+          {characters?.length && characters.map((ch, i) => (
             <li className={classes['detail__characters-item']} key={i}>
               {ch.name}
             </li>

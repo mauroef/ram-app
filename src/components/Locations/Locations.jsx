@@ -42,7 +42,7 @@ const Locations = () => {
     setDetailId([id]);
     setTimeout(() => {
       setDetailIsShown(true);
-    }, 300);
+    }, 600);
   };
 
   const hideDetailHandler = () => {

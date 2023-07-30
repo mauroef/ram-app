@@ -23,7 +23,7 @@ const LocationDetail = ({ detail, residents, onClose }) => {
       <Card className={classes['detail__residents']}>
         <p>Residentes</p>
         <ul className={classes['detail__residents-list']}>
-          {residents.length && residents.map((res, i) => (
+          {residents?.length && residents.map((res, i) => (
             <li className={classes['detail__residents-item']} key={i}>
               {res.name}
             </li>
