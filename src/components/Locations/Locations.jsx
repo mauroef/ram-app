@@ -97,7 +97,6 @@ const Locations = () => {
         <p>Nombre</p>
         <p>Tipo</p>
         <p>Dimensión</p>
-        <p></p>
       </div>
     </header>
   );

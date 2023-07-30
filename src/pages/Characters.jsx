@@ -1,6 +1,8 @@
 import Hero from '../components/Layout/Hero/Hero';
 import Section from '../components/Layout/Section/Section';
+import PageNavigation from '../components/PageNavigation/PageNavigation';
 import { default as CharactersElement } from '../components/Characters/Characters';
+import { PAGE } from '../../config/';
 
 const Characters = () => {
   return (
@@ -17,7 +19,8 @@ const Characters = () => {
         </p>
       </Hero>
       <Section>
-          <CharactersElement />
+        <PageNavigation currentPage={PAGE.CHARACTERS} />
+        <CharactersElement />
       </Section>
     </main>
   );

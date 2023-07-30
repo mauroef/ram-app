@@ -1,6 +1,8 @@
 import Hero from '../components/Layout/Hero/Hero';
 import Section from '../components/Layout/Section/Section';
+import PageNavigation from '../components/PageNavigation/PageNavigation';
 import { default as LocationsElement } from '../components/Locations/Locations';
+import { PAGE } from '../../config/';
 
 const Locations = () => {
   return (
@@ -17,6 +19,7 @@ const Locations = () => {
         </p>
       </Hero>
       <Section>
+        <PageNavigation currentPage={PAGE.LOCATIONS} />
         <LocationsElement />
       </Section>
     </main>

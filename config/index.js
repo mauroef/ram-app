@@ -4,5 +4,10 @@ const RESOURCES = {
   LOCATIONS: '/location',
   EPISODES: '/episode',
 };
+const PAGE = {
+  CHARACTERS: 'characters',
+  LOCATIONS: 'locations',
+  EPISODES: 'episodes',
+}
 
-export { BASE_URL, RESOURCES };
+export { BASE_URL, RESOURCES, PAGE };
