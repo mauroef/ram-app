@@ -46,5 +46,6 @@ li {
 }
 
 button {
+  color: var(--color-black);
   font-family: 'Nunito', sans-serif;
 }
