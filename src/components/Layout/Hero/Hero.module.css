@@ -12,18 +12,19 @@
   margin: 0 auto;
   max-height: 40rem;
   max-width: 64rem;
+  overflow-y: auto;
 }
 
 .hero .hero__card {
   backdrop-filter: blur(0.25rem);
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0, 0, 0, 0.3);
   font-size: 1.5rem;
+  margin: 1rem;
   text-align: center;
 }
-@media (max-width: 48rem) {
+@media (min-width: 30rem) {
   .hero .hero__card {
-    margin-left: 1rem;
-    margin-right: 1rem;
+    font-size: 1.5rem;
   }
 }
 @media (min-width: 48rem) {
