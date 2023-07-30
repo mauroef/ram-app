@@ -1,14 +1,21 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import LocationItem from './LocationItem/LocationItem';
+import LocationDetail from './LocationDetail/LocationDetail';
 import Search from '../Search/Search';
 import List from '../UI/List/List';
 import Loader from '../UI/Loader/Loader';
 import Error from '../UI/Error/Error';
+import useGetById from '../../hooks/useGetById';
 import useGetAll from '../../hooks/useGetAll';
 import { RESOURCES } from '../../../config/';
 import classes from '../UI/List/List.module.css';
 
 const Locations = () => {
+  // modal
+  const [detailIsShown, setDetailIsShown] = useState(false);
+  const [detailId, setDetailId] = useState([]);
+  const [residentsIds, setResidentsIds] = useState([]);
+  // search
   const [pageNum, setPageNum] = useState(1);
   const [queryName, setQueryName] = useState('');
   const [nameInput, setNameInput] = useState('');
@@ -18,6 +25,29 @@ const Locations = () => {
     pageNum,
     queryName
   );
+
+  const [detailData] = useGetById(RESOURCES.LOCATIONS, detailId);
+  const [residentsData] = useGetById(RESOURCES.CHARACTERS, residentsIds);
+
+  useEffect(() => {
+    if (detailData && detailData.length > 0) {
+      const newCharactersIds = detailData[0].residents.map((resident) =>
+      resident.split('/').pop()
+      );
+      setResidentsIds(newCharactersIds);
+    }
+  }, [detailData]);
+
+  const showDetailHandler = (id) => {
+    setDetailId([id]);
+    setTimeout(() => {
+      setDetailIsShown(true);
+    }, 300);
+  };
+
+  const hideDetailHandler = () => {
+    setDetailIsShown(false);
+  };
 
   const observer = useRef();
 
@@ -74,6 +104,13 @@ const Locations = () => {
 
   return (
     <div>
+      {detailIsShown && detailId.length > 0 && (
+        <LocationDetail
+          detail={detailData[0]}
+          residents={residentsData[0]}
+          onClose={hideDetailHandler}
+        />
+      )}
       <Search
         onSubmit={submitHandler}
         nameValue={nameInput}
@@ -85,11 +122,25 @@ const Locations = () => {
           if (resourceData.length === i + 1) {
             return (
               <li ref={lastLocationElementRef} key={i}>
-                <LocationItem key={i} item={loc} />
+                <LocationItem
+                  key={i}
+                  item={loc}
+                  onShowDetail={showDetailHandler}
+                />
               </li>
             );
           } else {
-            return <li key={i}>{<LocationItem key={i} item={loc} />}</li>;
+            return (
+              <li key={i}>
+                {
+                  <LocationItem
+                    key={i}
+                    item={loc}
+                    onShowDetail={showDetailHandler}
+                  />
+                }
+              </li>
+            );
           }
         })}
         {isLoading && !error && <Loader />}
