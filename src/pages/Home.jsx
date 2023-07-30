@@ -2,12 +2,13 @@ import Hero from '../components/Layout/Hero/Hero';
 import Section from '../components/Layout/Section/Section';
 import Link from '../components/UI/Link/Link';
 import Footer from '../components/Layout/Footer/Footer';
+import imagePath from '/src/assets/bg-home.png';
 
 const Home = () => {
   return (
     <>
       <main>
-        <Hero backgroundURL={'/src/assets/bg-home.png'}>
+        <Hero backgroundURL={imagePath}>
           <p style={{ minHeight: '10.75rem' }}>
             ¡Wubba lubba dub dub! Bienvenidos a mi dimensión interactiva. Aquí
             podrás sumergirte en el vasto universo de Rick and Morty como nunca

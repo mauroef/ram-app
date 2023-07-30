@@ -3,11 +3,12 @@ import Section from '../components/Layout/Section/Section';
 import PageNavigation from '../components/PageNavigation/PageNavigation';
 import { default as CharactersElement } from '../components/Characters/Characters';
 import { PAGE } from '../../config/';
+import imagePath from '/src/assets/bg-characters.jpg';
 
 const Characters = () => {
   return (
     <main>
-      <Hero backgroundURL={'/src/assets/bg-characters.jpg'}>
+      <Hero backgroundURL={imagePath}>
         <p>
           ¡Bienvenido a la sección de Personajes! Sumérgete en el fascinante
           elenco de Rick and Morty. Desde el genio científico Rick hasta su
