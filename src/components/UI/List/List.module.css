@@ -44,7 +44,9 @@
   background-color: transparent;
   border: 0.0625rem solid var(--color-lime);
   color: var(--color-lime);
+  display: flex;
   font-size: 1rem;
+  justify-content: center;
   transition: all 0.25s ease-out;
   text-align: center;
 }
