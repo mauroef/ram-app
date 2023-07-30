@@ -17,7 +17,7 @@ const MONTHS = {
   december: 'diciembre',
 };
 
-const EpisodeItem = ({ item }) => {
+const EpisodeItem = ({ item, onShowDetail }) => {
   const getSpanishMonth = (date) => {
     let newDate = date.split(' ');
     let newMonth = newDate[0].toLowerCase();
@@ -34,13 +34,17 @@ const EpisodeItem = ({ item }) => {
       newDate[2],
     ].join(' ');
   };
+
+  const showDetailHandler = () => {
+    onShowDetail(item.id);
+  };
+
   return (
     <Card className={classes['item__card']}>
       <p>{item.name}</p>
       <p>{getSpanishMonth(item.air_date)}</p>
       <p>{item.episode}</p>
-      <Button>Detalle</Button>
-      {/* TODO: open modal and show characters related -> item.residents */}
+      <Button onClick={showDetailHandler}>Detalle</Button>
     </Card>
   );
 };

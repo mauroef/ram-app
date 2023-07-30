@@ -1,14 +1,21 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import EpisodeItem from './EpisodeItem/EpisodeItem';
+import EpisodeDetail from './EpisodeDetail/EpisodeDetail';
 import Search from '../Search/Search';
 import List from '../UI/List/List';
 import Loader from '../UI/Loader/Loader';
 import Error from '../UI/Error/Error';
+import useGetById from '../../hooks/useGetById';
 import useGetAll from '../../hooks/useGetAll';
 import { RESOURCES } from '../../../config/';
 import classes from '../UI/List/List.module.css';
 
 const Episodes = () => {
+  // modal
+  const [detailIsShown, setDetailIsShown] = useState(false);
+  const [detailId, setDetailId] = useState([]);
+  const [characterIds, setCharacterIds] = useState([]);
+  // search
   const [pageNum, setPageNum] = useState(1);
   const [queryName, setQueryName] = useState('');
   const [nameInput, setNameInput] = useState('');
@@ -19,9 +26,35 @@ const Episodes = () => {
     queryName
   );
 
+  const [detailData] = useGetById(RESOURCES.EPISODES, detailId);
+  const [charactersData] = useGetById(
+    RESOURCES.CHARACTERS,
+    characterIds
+  );
+
+  useEffect(() => {
+    if (detailData && detailData.length > 0) {
+      const newCharactersIds = detailData[0].characters.map((character) =>
+        character.split('/').pop()
+      );
+      setCharacterIds(newCharactersIds);
+    }
+  }, [detailData]);
+
+  const showDetailHandler = (id) => {
+    setDetailId([id]);
+    setTimeout(() => {
+      setDetailIsShown(true);
+    }, 300);
+  };
+
+  const hideDetailHandler = () => {
+    setDetailIsShown(false);
+  };
+
   const observer = useRef();
 
-  const lastLocationElementRef = useCallback(
+  const lastEpisodeElementRef = useCallback(
     (node) => {
       if (isLoading) {
         return;
@@ -65,15 +98,21 @@ const Episodes = () => {
         className={`${classes['list__header-inner']} ${classes['list__header-inner--episodes']}`}
       >
         <p>Nombre</p>
-        <p>Fecha de Emisión</p>
+        <p>Fecha de estreno</p>
         <p>Número</p>
-        <p></p>
       </div>
     </header>
   );
 
   return (
     <div>
+      {detailIsShown && detailId.length > 0 && (
+        <EpisodeDetail
+          detail={detailData[0]}
+          characters={charactersData[0]}
+          onClose={hideDetailHandler}
+        />
+      )}
       <Search
         onSubmit={submitHandler}
         nameValue={nameInput}
@@ -81,15 +120,29 @@ const Episodes = () => {
       />
       <List className={classes['list--locations']}>
         {resourceData.length > 0 && header}
-        {resourceData.map((loc, i) => {
+        {resourceData.map((epi, i) => {
           if (resourceData.length === i + 1) {
             return (
-              <li ref={lastLocationElementRef} key={i}>
-                <EpisodeItem key={i} item={loc} />
+              <li ref={lastEpisodeElementRef} key={i}>
+                <EpisodeItem
+                  key={i}
+                  item={epi}
+                  onShowDetail={showDetailHandler}
+                />
               </li>
             );
           } else {
-            return <li key={i}>{<EpisodeItem key={i} item={loc} />}</li>;
+            return (
+              <li key={i}>
+                {
+                  <EpisodeItem
+                    key={i}
+                    item={epi}
+                    onShowDetail={showDetailHandler}
+                  />
+                }
+              </li>
+            );
           }
         })}
         {isLoading && !error && <Loader />}

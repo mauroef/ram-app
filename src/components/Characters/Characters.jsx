@@ -11,8 +11,10 @@ import { RESOURCES } from '../../../config/';
 import classes from '../UI/List/List.module.css';
 
 const Characters = () => {
+  // modal
   const [detailIsShown, setDetailIsShown] = useState(false);
   const [detailId, setDetailId] = useState([]);
+  // search
   const [pageNum, setPageNum] = useState(1);
   const [queryName, setQueryName] = useState('');
   const [nameInput, setNameInput] = useState('');
@@ -94,8 +96,6 @@ const Characters = () => {
                 <CharacterItem
                   key={i}
                   item={char}
-                  detailIsShown={detailIsShown}
-                  onCloseDetail={hideDetailHandler}
                   onShowDetail={showDetailHandler}
                 />
               </li>
@@ -106,8 +106,6 @@ const Characters = () => {
                 <CharacterItem
                   key={i}
                   item={char}
-                  detailIsShown={detailIsShown}
-                  onCloseDetail={hideDetailHandler}
                   onShowDetail={showDetailHandler}
                 />
               </li>

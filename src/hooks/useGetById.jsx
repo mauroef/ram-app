@@ -13,7 +13,7 @@ function useGetById(resource, ids) {
     }
 
     axios
-      .get(`${BASE_URL}${resource}/${ids[0]}`, {
+      .get(`${BASE_URL}${resource}/${ids.join(',')}`, {
         cancelToken: new CancelToken((c) => (cancel = c)),
       })
       .then((res) => {
