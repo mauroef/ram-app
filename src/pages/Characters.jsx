@@ -11,12 +11,12 @@ const Characters = () => {
       <Hero backgroundURL={imagePath}>
         <p>
           ¡Bienvenido a la sección de Personajes! Sumérgete en el fascinante
-          elenco de Rick and Morty. Desde el genio científico Rick hasta su
-          intrépido nieto Morty, cada personaje tiene su propia historia,
-          personalidad y una dosis única de locura. Explora sus perfiles
-          detallados, descubre sus motivaciones y acompáñalos en sus aventuras
-          interdimensionales. ¿Estás listo para conocer a los personajes más
-          extravagantes del multiverso?
+          elenco de Rick and Morty.
+        </p>
+        <p>
+          Explora sus perfiles detallados, descubre sus motivaciones y
+          acompáñalos en sus aventuras interdimensionales. ¿Estás listo para
+          conocer a los personajes más extravagantes del multiverso?
         </p>
       </Hero>
       <Section>

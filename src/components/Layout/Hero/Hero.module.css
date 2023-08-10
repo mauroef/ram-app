@@ -5,14 +5,13 @@
   background-size: cover;
   height: 30rem;
   display: flex;
-  min-height: 40rem;
+  min-height: calc(100lvh - 112px);
   width: 100%;
 }
 .hero .hero__inner {
   margin: 0 auto;
-  max-height: 40rem;
+  /* max-height: 40rem; */
   max-width: 64rem;
-  overflow-y: auto;
 }
 
 .hero .hero__card {
