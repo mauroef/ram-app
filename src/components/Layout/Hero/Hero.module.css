@@ -10,27 +10,25 @@
 }
 .hero .hero__inner {
   margin: 0 auto;
-  /* max-height: 40rem; */
   max-width: 64rem;
 }
 
 .hero .hero__card {
-  backdrop-filter: blur(0.25rem);
+  -webkit-backdrop-filter: saturate(140%) blur(0.25rem);
+  backdrop-filter: saturate(140%) blur(0.25rem);
   background-color: rgba(0, 0, 0, 0.3);
   font-size: 1.5rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
   margin: 1rem;
   text-align: center;
 }
 @media (min-width: 30rem) {
   .hero .hero__card {
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
   }
 }
 @media (min-width: 48rem) {
   .hero {
     min-height: 30rem;
-  }
-  .hero .hero__card {
-    font-size: 2rem;
   }
 }

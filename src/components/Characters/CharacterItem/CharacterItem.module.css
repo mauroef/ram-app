@@ -91,7 +91,7 @@
 }
 .item__button {
   background-color: var(--color-lime);
-  font-size: 1rem;
+  font-size: 0.9rem;
   padding: 0.5rem 0;
   width: 100%;
 }
