@@ -7,6 +7,7 @@ import Loader from '../UI/Loader/Loader';
 import Error from '../UI/Error/Error';
 import useGetById from '../../hooks/useGetById';
 import useGetAll from '../../hooks/useGetAll';
+import useBodyScroll from '../../hooks/useBodyScroll';
 import { RESOURCES } from '../../../config/';
 import classes from '../UI/List/List.module.css';
 
@@ -18,6 +19,8 @@ const Characters = () => {
   const [pageNum, setPageNum] = useState(1);
   const [queryName, setQueryName] = useState('');
   const [nameInput, setNameInput] = useState('');
+  // scroll
+  const [scrollIsBlocked, setScrollIsBlocked] = useBodyScroll();
 
   const { isLoading, error, resourceData, hasMore } = useGetAll(
     RESOURCES.CHARACTERS,
@@ -29,6 +32,9 @@ const Characters = () => {
 
   const showDetailHandler = (id) => {
     setDetailId([id]);
+    if (!scrollIsBlocked) {
+      setScrollIsBlocked(true);
+    }
     setTimeout(() => {
       setDetailIsShown(true);
     }, 300);
@@ -36,6 +42,9 @@ const Characters = () => {
 
   const hideDetailHandler = () => {
     setDetailIsShown(false);
+    if (scrollIsBlocked) {
+      setScrollIsBlocked(false);
+    }
   };
 
   const observer = useRef();

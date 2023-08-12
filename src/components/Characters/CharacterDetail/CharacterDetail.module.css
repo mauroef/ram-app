@@ -6,6 +6,7 @@
 .detail__image-container {
   position: relative;
   line-height: 0;
+  text-align: center;
   width: 100%;
 }
 .detail__image {
@@ -20,11 +21,12 @@
 }
 .detail__image--shadow {
   filter: blur(1.5rem);
-  left: 0;
+  left: 50%;
   max-width: 18.75rem;
   opacity: 75%;
   position: absolute;
   top: 0;
+  transform: translate(-50%, 0);
   width: 100%;
 }
 .detail__info {
@@ -82,19 +84,15 @@
 .detail__button {
   background-color: var(--color-lime);
   font-size: 1rem;
-  max-width: fit-content;
   padding: 0.5rem 2rem;
+  width: 100%;
 }
 .detail__button:hover {
   opacity: 0.9;
 }
-@media (max-width: 64rem) {
-  .detail__image-container {
-    text-align: center;
-  }
-  .detail__image--shadow {
-    left: 50%;
-    transform: translate(-50%, 0);
+@media (min-width: 48rem) {
+  .detail__button {
+    max-width: fit-content;
   }
 }
 @media (min-width: 64rem) {

@@ -7,6 +7,7 @@ import Loader from '../UI/Loader/Loader';
 import Error from '../UI/Error/Error';
 import useGetById from '../../hooks/useGetById';
 import useGetAll from '../../hooks/useGetAll';
+import useBodyScroll from '../../hooks/useBodyScroll';
 import { RESOURCES } from '../../../config/';
 import classes from '../UI/List/List.module.css';
 
@@ -19,6 +20,8 @@ const Locations = () => {
   const [pageNum, setPageNum] = useState(1);
   const [queryName, setQueryName] = useState('');
   const [nameInput, setNameInput] = useState('');
+  // scroll
+  const [scrollIsBlocked, setScrollIsBlocked] = useBodyScroll();
 
   const { isLoading, error, resourceData, hasMore } = useGetAll(
     RESOURCES.LOCATIONS,
@@ -32,7 +35,7 @@ const Locations = () => {
   useEffect(() => {
     if (detailData && detailData.length > 0) {
       const newCharactersIds = detailData[0].residents.map((resident) =>
-      resident.split('/').pop()
+        resident.split('/').pop()
       );
       setResidentsIds(newCharactersIds);
     }
@@ -40,6 +43,9 @@ const Locations = () => {
 
   const showDetailHandler = (id) => {
     setDetailId([id]);
+    if (!scrollIsBlocked) {
+      setScrollIsBlocked(true);
+    }
     setTimeout(() => {
       setDetailIsShown(true);
     }, 600);
@@ -47,6 +53,9 @@ const Locations = () => {
 
   const hideDetailHandler = () => {
     setDetailIsShown(false);
+    if (scrollIsBlocked) {
+      setScrollIsBlocked(false);
+    }
   };
 
   const observer = useRef();
