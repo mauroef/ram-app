@@ -7,6 +7,7 @@ import Loader from '../UI/Loader/Loader';
 import Error from '../UI/Error/Error';
 import useGetById from '../../hooks/useGetById';
 import useGetAll from '../../hooks/useGetAll';
+import useBodyScroll from '../../hooks/useBodyScroll';
 import { RESOURCES } from '../../../config/';
 import classes from '../UI/List/List.module.css';
 
@@ -19,6 +20,8 @@ const Episodes = () => {
   const [pageNum, setPageNum] = useState(1);
   const [queryName, setQueryName] = useState('');
   const [nameInput, setNameInput] = useState('');
+  // scroll
+  const [scrollIsBlocked, setScrollIsBlocked] = useBodyScroll();
 
   const { isLoading, error, resourceData, hasMore } = useGetAll(
     RESOURCES.EPISODES,
@@ -27,10 +30,7 @@ const Episodes = () => {
   );
 
   const [detailData] = useGetById(RESOURCES.EPISODES, detailId);
-  const [charactersData] = useGetById(
-    RESOURCES.CHARACTERS,
-    characterIds
-  );
+  const [charactersData] = useGetById(RESOURCES.CHARACTERS, characterIds);
 
   useEffect(() => {
     if (detailData && detailData.length > 0) {
@@ -43,12 +43,18 @@ const Episodes = () => {
 
   const showDetailHandler = (id) => {
     setDetailId([id]);
+    if (!scrollIsBlocked) {
+      setScrollIsBlocked(true);
+    }
     setTimeout(() => {
       setDetailIsShown(true);
     }, 300);
   };
 
   const hideDetailHandler = () => {
+    if (scrollIsBlocked) {
+      setScrollIsBlocked(false);
+    }
     setDetailIsShown(false);
   };
 

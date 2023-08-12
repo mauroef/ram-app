@@ -1,5 +1,4 @@
 import Card from '../../UI/Card/Card';
-// import backgroundImage from '../../../assets/background.jpg';
 import classes from './Hero.module.css';
 
 const Hero = ({ children, backgroundURL }) => {

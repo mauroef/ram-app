@@ -1,6 +1,3 @@
-body:has(.backdrop) {
-  overflow: hidden;
-}
 .backdrop {
   -webkit-backdrop-filter: saturate(140%) blur(0.5rem);
   backdrop-filter: saturate(140%) blur(0.5rem);
