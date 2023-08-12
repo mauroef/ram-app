@@ -3,12 +3,11 @@ import Section from '../components/Layout/Section/Section';
 import PageNavigation from '../components/PageNavigation/PageNavigation';
 import { default as EpisodesElement } from '../components/Episodes/Episodes';
 import { PAGE } from '../../config/';
-import imagePath from '/src/assets/bg-episodes.jpg';
 
 const Episodes = () => {
   return (
     <main>
-      <Hero backgroundURL={imagePath}>
+      <Hero page={PAGE.EPISODES}>
         <p>
           ¡Explora la sección de Episodios y sumérgete en las aventuras más
           alucinantes de Rick and Morty!

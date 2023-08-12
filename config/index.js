@@ -8,6 +8,8 @@ const PAGE = {
   CHARACTERS: 'characters',
   LOCATIONS: 'locations',
   EPISODES: 'episodes',
+  HOME: 'home',
+  NOT_FOUND: 'not-found'
 }
 
 export { BASE_URL, RESOURCES, PAGE };
