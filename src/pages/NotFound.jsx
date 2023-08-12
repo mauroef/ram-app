@@ -1,10 +1,10 @@
 import Hero from '../components/Layout/Hero/Hero';
-import imagePath from '/src/assets/bg-not-found.jpg';
+import { PAGE } from '../../config/';
 
 const NotFound = () => {
   return (
     <main>
-      <Hero backgroundURL={imagePath}>
+      <Hero page={PAGE.NOT_FOUND}>
         <h2>Pagina no encontrada</h2>
         <p>Wubba lubba dub dub! Parece que te has aventurado en un lugar desconocido, esta página no existe en nuestro multiverso.</p>
       </Hero>
