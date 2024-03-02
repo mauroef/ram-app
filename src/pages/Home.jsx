@@ -1,3 +1,5 @@
+import { ScrollRestoration } from 'react-router-dom';
+
 import Hero from '../components/Layout/Hero/Hero';
 import Section from '../components/Layout/Section/Section';
 import Link from '../components/UI/Link/Link';
@@ -74,6 +76,7 @@ const Home = () => {
         </Section>
       </main>
       <Footer />
+      <ScrollRestoration/>
     </>
   );
 };

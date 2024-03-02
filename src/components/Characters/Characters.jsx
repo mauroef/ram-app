@@ -21,13 +21,12 @@ const Characters = () => {
   const [nameInput, setNameInput] = useState('');
   // scroll
   const [scrollIsBlocked, setScrollIsBlocked] = useBodyScroll();
-
+  // requests
   const { isLoading, error, resourceData, hasMore } = useGetAll(
     RESOURCES.CHARACTERS,
     pageNum,
     queryName
   );
-
   const [detailData] = useGetById(RESOURCES.CHARACTERS, detailId);
 
   const showDetailHandler = (id) => {
@@ -35,9 +34,7 @@ const Characters = () => {
     if (!scrollIsBlocked) {
       setScrollIsBlocked(true);
     }
-    setTimeout(() => {
-      setDetailIsShown(true);
-    }, 300);
+    setDetailIsShown(true);
   };
 
   const hideDetailHandler = () => {
@@ -89,7 +86,7 @@ const Characters = () => {
 
   return (
     <div>
-      {detailIsShown && detailId.length > 0 && (
+      {detailIsShown && detailId.length > 0 && detailData.length > 0 && (
         <CharacterDetail detail={detailData[0]} onClose={hideDetailHandler} />
       )}
       <Search

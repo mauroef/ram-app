@@ -46,9 +46,7 @@ const Episodes = () => {
     if (!scrollIsBlocked) {
       setScrollIsBlocked(true);
     }
-    setTimeout(() => {
-      setDetailIsShown(true);
-    }, 300);
+    setDetailIsShown(true);
   };
 
   const hideDetailHandler = () => {
@@ -112,7 +110,7 @@ const Episodes = () => {
 
   return (
     <div>
-      {detailIsShown && detailId.length > 0 && (
+      {detailIsShown && detailId.length > 0 && detailData.length > 0 && (
         <EpisodeDetail
           detail={detailData[0]}
           characters={charactersData[0]}
