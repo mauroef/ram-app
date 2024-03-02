@@ -46,9 +46,7 @@ const Locations = () => {
     if (!scrollIsBlocked) {
       setScrollIsBlocked(true);
     }
-    setTimeout(() => {
-      setDetailIsShown(true);
-    }, 600);
+    setDetailIsShown(true);
   };
 
   const hideDetailHandler = () => {
@@ -112,7 +110,7 @@ const Locations = () => {
 
   return (
     <div>
-      {detailIsShown && detailId.length > 0 && (
+      {detailIsShown && detailId.length > 0 && detailData.length > 0 && (
         <LocationDetail
           detail={detailData[0]}
           residents={residentsData[0]}

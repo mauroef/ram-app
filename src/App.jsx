@@ -1,12 +1,12 @@
+import { lazy, Suspense } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-// import ScrollToTop from '../src/components/ScrollToTop/'; // FIXME: Add ScrollToTop
 import Layout from './components/Layout/Layout';
 import HomePage from './pages/Home';
-import CharactersPage from './pages/Characters';
-import LocationsPage from './pages/Locations';
-import EpisodesPage from './pages/Episodes';
 import NotFoundPage from './pages/NotFound';
+const CharactersPage = lazy(() => import('./pages/Characters'));
+const LocationsPage = lazy(() => import('./pages/Locations'));
+const EpisodesPage = lazy(() => import('./pages/Episodes'));
 
 const router = createBrowserRouter([
   {
@@ -20,22 +20,34 @@ const router = createBrowserRouter([
       },
       {
         path: 'characters',
-        element: <CharactersPage />,
+        element: (
+          <Suspense fallback={<p>Loading...</p>}>
+            <CharactersPage />
+          </Suspense>
+        ),
       },
       {
         path: 'locations',
-        element: <LocationsPage />,
+        element: (
+          <Suspense fallback={<p>Loading...</p>}>
+            <LocationsPage />
+          </Suspense>
+        ),
       },
       {
         path: 'episodes',
-        element: <EpisodesPage />,
+        element: (
+          <Suspense fallback={<p>Loading...</p>}>
+            <EpisodesPage />
+          </Suspense>
+        ),
       },
     ],
   },
 ]);
 
 const App = () => {
-  return <RouterProvider router={router} />;
+  return <RouterProvider router={router} />
 };
 
 export default App;
